@@ -24,7 +24,7 @@ public class Customer {
 
     for(Rental each : rentals) {
       double thisAmount = 0;
-      thisAmount += getAmount(each, thisAmount);
+      thisAmount += getAmount(each);
 
       frequentRenterPoints++;
 
@@ -40,7 +40,7 @@ public class Customer {
     return result;
   }
 
-  private double getAmount(Rental each, double thisAmount) {
+  private double getAmount(Rental each) {
     double amount = 0;
     switch (each.getMovie().getPriceCode()) {
       case Movie.REGULAR:
