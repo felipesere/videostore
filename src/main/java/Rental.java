@@ -23,7 +23,7 @@ public class Rental {
         amount = movie.getAmount(daysRented);
         break;
       case Movie.NEW_RELEASE:
-        amount += getDaysRented() * 3;
+        amount = getAmount(daysRented);
         break;
       case Movie.CHILDRENS:
         amount += 1.5;
@@ -33,6 +33,10 @@ public class Rental {
         break;
     }
     return amount;
+  }
+
+  private double getAmount(int daysRented) {
+    return  daysRented * 3;
   }
 
   int getFrequentRenterPoints() {
