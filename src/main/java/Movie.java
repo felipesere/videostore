@@ -1,4 +1,4 @@
-public class Movie {
+public abstract class Movie {
 
 	public static final int CHILDRENS	= 2;
 	public static final int REGULAR 	= 0;
@@ -24,7 +24,5 @@ public class Movie {
 		return title;
 	}
 
-  double getAmount(int daysRented) {
-     return 0;
-  }
+  abstract double getAmount(int daysRented);
 }
