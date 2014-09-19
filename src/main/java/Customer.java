@@ -15,18 +15,13 @@ public class Customer {
 
   public String statement() {
     StatementPrinter printer = new StatementPrinter();
-    double totalAmount = 0;
-    int frequentRenterPoints = 0;
     String result = printer.getHeader(name);
 
     for(Rental rental : rentals) {
-      frequentRenterPoints += rental.getFrequentRenterPoints();
-      totalAmount += rental.getAmount();
-
       result += printer.getRentalStatement(rental);
     }
 
-    result += printer.getFooter(totalAmount, frequentRenterPoints);
+    result += printer.getFooter();
 
     return result;
   }

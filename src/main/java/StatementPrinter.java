@@ -16,9 +16,8 @@ public class StatementPrinter {
     totalAmount += rental.getAmount();
   }
 
-  public String getFooter(double totalAmount, int frequentRenterPoints) {
-    String result = "";
-    result += "You owed " + totalAmount + "\n";
+  public String getFooter() {
+    String result = "You owed " + totalAmount + "\n";
     result += "You earned " + frequentRenterPoints + " frequent renter points\n";
     return result;
   }
