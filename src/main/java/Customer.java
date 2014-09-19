@@ -20,12 +20,10 @@ public class Customer {
     String result = printer.getHeader(name);
 
     for(Rental rental : rentals) {
-      double thisAmount = rental.getAmount();
-
       frequentRenterPoints += rental.getFrequentRenterPoints();
+      totalAmount += rental.getAmount();
 
-      result = printer.getRentalStatement(rental, thisAmount);
-      totalAmount += thisAmount;
+      result += printer.getRentalStatement(rental);
     }
 
     result += printer.getFooter(totalAmount, frequentRenterPoints);
