@@ -22,15 +22,15 @@ public class Customer {
     int frequentRenterPoints = 0;
     String result = "Rental Record for " + getName() + "\n";
 
-    for(Rental each : rentals) {
+    for(Rental rental : rentals) {
       double thisAmount = 0;
-      thisAmount += getAmount(each);
+      thisAmount += getAmount(rental);
 
       frequentRenterPoints++;
 
-      if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1) frequentRenterPoints++;
+      if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE && rental.getDaysRented() > 1) frequentRenterPoints++;
 
-      result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+      result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
       totalAmount += thisAmount;
     }
 
@@ -40,22 +40,22 @@ public class Customer {
     return result;
   }
 
-  private double getAmount(Rental each) {
+  private double getAmount(Rental rental) {
     double amount = 0;
-    switch (each.getMovie().getPriceCode()) {
+    switch (rental.getMovie().getPriceCode()) {
       case Movie.REGULAR:
         amount += 2;
-        if (each.getDaysRented() > 2) {
-          amount += (each.getDaysRented() - 2) * 1.5;
+        if (rental.getDaysRented() > 2) {
+          amount += (rental.getDaysRented() - 2) * 1.5;
         }
         break;
       case Movie.NEW_RELEASE:
-        amount += each.getDaysRented() * 3;
+        amount += rental.getDaysRented() * 3;
         break;
       case Movie.CHILDRENS:
         amount += 1.5;
-        if (each.getDaysRented() > 3){
-          amount += (each.getDaysRented() - 3) * 1.5;
+        if (rental.getDaysRented() > 3){
+          amount += (rental.getDaysRented() - 3) * 1.5;
         }
         break;
     }
