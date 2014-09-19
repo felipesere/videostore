@@ -14,14 +14,14 @@ public class VideoStoreTest {
 
   @Test
 	public void testSingleNewReleaseStatement () {
-		customer.addRental (new Rental (new Movie ("The Cell", Movie.NEW_RELEASE), 3));
+		customer.addRental (new Rental (new NewReleaseMovie ("The Cell", Movie.NEW_RELEASE), 3));
 		assertEquals ("Rental Record for Fred\n\tThe Cell\t9.0\nYou owed 9.0\nYou earned 2 frequent renter points\n", customer.statement ());
 	}
 
   @Test
 	public void testDualNewReleaseStatement () {
-		customer.addRental (new Rental (new Movie ("The Cell", Movie.NEW_RELEASE), 3));
-		customer.addRental (new Rental (new Movie ("The Tigger Movie", Movie.NEW_RELEASE), 3));
+		customer.addRental (new Rental (new NewReleaseMovie("The Cell", Movie.NEW_RELEASE), 3));
+		customer.addRental (new Rental (new NewReleaseMovie ("The Tigger Movie", Movie.NEW_RELEASE), 3));
 		assertEquals ("Rental Record for Fred\n\tThe Cell\t9.0\n\tThe Tigger Movie\t9.0\nYou owed 18.0\nYou earned 4 frequent renter points\n", customer.statement ());
 	}
 
