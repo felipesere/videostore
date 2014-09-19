@@ -26,16 +26,8 @@ public class Rental {
         amount = movie.getAmount(daysRented);
         break;
       case Movie.CHILDRENS:
-        amount = getAmount(daysRented);
+        amount = movie.getAmount(daysRented);
         break;
-    }
-    return amount;
-  }
-
-  private double getAmount(int daysRented) {
-    double amount = 1.5;
-    if (daysRented > 3){
-      amount += (daysRented - 3) * 1.5;
     }
     return amount;
   }
