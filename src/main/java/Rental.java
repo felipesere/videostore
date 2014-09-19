@@ -4,12 +4,8 @@ public class Rental {
 		this.movie 		= movie;
 		this.daysRented = daysRented;
 	}
-	
-	public int getDaysRented () {
-		return daysRented;
-	}
-	
-	public Movie getMovie () {
+
+  public Movie getMovie () {
 		return movie;
 	}
 	
