@@ -14,9 +14,10 @@ public class Customer {
   }
 
   public String statement() {
+    StatementPrinter printer = new StatementPrinter();
     double totalAmount = 0;
     int frequentRenterPoints = 0;
-    String result = getHeader(name);
+    String result = printer.getHeader(name);
 
     for(Rental rental : rentals) {
       double thisAmount = rental.getAmount();
@@ -37,9 +38,5 @@ public class Customer {
     result += "You owed " + totalAmount + "\n";
     result += "You earned " + frequentRenterPoints + " frequent renter points\n";
     return result;
-  }
-
-  private String getHeader(String name) {
-    return "Rental Record for " + name + "\n";
   }
 }
