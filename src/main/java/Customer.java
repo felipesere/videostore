@@ -24,7 +24,7 @@ public class Customer {
 
     for(Rental each : rentals) {
       double thisAmount = 0;
-      thisAmount = getAmount(each, thisAmount);
+      thisAmount += getAmount(each, thisAmount);
 
       frequentRenterPoints++;
 
@@ -41,20 +41,24 @@ public class Customer {
   }
 
   private double getAmount(Rental each, double thisAmount) {
-    // determines the amount for each line
+    double amount = 0;
     switch (each.getMovie().getPriceCode()) {
       case Movie.REGULAR:
-        thisAmount += 2;
-        if (each.getDaysRented() > 2) thisAmount += (each.getDaysRented() - 2) * 1.5;
+        amount += 2;
+        if (each.getDaysRented() > 2) {
+          amount += (each.getDaysRented() - 2) * 1.5;
+        }
         break;
       case Movie.NEW_RELEASE:
-        thisAmount += each.getDaysRented() * 3;
+        amount += each.getDaysRented() * 3;
         break;
       case Movie.CHILDRENS:
-        thisAmount += 1.5;
-        if (each.getDaysRented() > 3) thisAmount += (each.getDaysRented() - 3) * 1.5;
+        amount += 1.5;
+        if (each.getDaysRented() > 3){
+          amount += (each.getDaysRented() - 3) * 1.5;
+        }
         break;
     }
-    return thisAmount;
+    return amount;
   }
 }
