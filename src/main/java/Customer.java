@@ -27,12 +27,12 @@ public class Customer {
 
       frequentRenterPoints += rental.getFrequentRenterPoints();
 
-      result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+      result += "\t" + rental.getMovie().getTitle() + "\t" + thisAmount + "\n";
       totalAmount += thisAmount;
     }
 
-    result += "You owed " + String.valueOf(totalAmount) + "\n";
-    result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
+    result += "You owed " + totalAmount + "\n";
+    result += "You earned " + frequentRenterPoints + " frequent renter points\n";
 
     return result;
   }
