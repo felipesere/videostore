@@ -22,10 +22,10 @@ public abstract class Movie {
 
   abstract double getAmount(int daysRented);
 
-  int getFrequentRenterPoints(int daysRented, Rental rental) {
+  int getFrequentRenterPoints(int daysRented) {
     int frequentRenterPoints = 1;
 
-    if (rental.getMovie().getPriceCode() == NEW_RELEASE && daysRented > 1){
+    if (this.getPriceCode() == NEW_RELEASE && daysRented > 1){
       frequentRenterPoints++;
     }
     return frequentRenterPoints;
