@@ -28,15 +28,8 @@ public class Customer {
       totalAmount += thisAmount;
     }
 
-    result += getFooter(totalAmount, frequentRenterPoints);
+    result += printer.getFooter(totalAmount, frequentRenterPoints);
 
-    return result;
-  }
-
-  private String getFooter(double totalAmount, int frequentRenterPoints) {
-    String result = "";
-    result += "You owed " + totalAmount + "\n";
-    result += "You earned " + frequentRenterPoints + " frequent renter points\n";
     return result;
   }
 }
