@@ -16,7 +16,7 @@ public class Customer {
   public String statement() {
     double totalAmount = 0;
     int frequentRenterPoints = 0;
-    String result = "Rental Record for " + name + "\n";
+    String result = getHeader();
 
     for(Rental rental : rentals) {
       double thisAmount = rental.getAmount();
@@ -27,9 +27,19 @@ public class Customer {
       totalAmount += thisAmount;
     }
 
-    result += "You owed " + totalAmount + "\n";
-    result += "You earned " + frequentRenterPoints + " frequent renter points\n";
+    result += getFooter(totalAmount, frequentRenterPoints);
 
     return result;
+  }
+
+  private String getFooter(double totalAmount, int frequentRenterPoints) {
+    String result = "";
+    result += "You owed " + totalAmount + "\n";
+    result += "You earned " + frequentRenterPoints + " frequent renter points\n";
+    return result;
+  }
+
+  private String getHeader() {
+    return "Rental Record for " + name + "\n";
   }
 }
