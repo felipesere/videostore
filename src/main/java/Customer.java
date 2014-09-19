@@ -24,7 +24,7 @@ public class Customer {
 
       frequentRenterPoints += rental.getFrequentRenterPoints();
 
-      result += "\t" + rental.getMovie().getTitle() + "\t" + thisAmount + "\n";
+      result = printer.getRentalStatement(rental, thisAmount);
       totalAmount += thisAmount;
     }
 
@@ -32,4 +32,5 @@ public class Customer {
 
     return result;
   }
+
 }

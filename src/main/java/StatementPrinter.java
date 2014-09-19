@@ -3,6 +3,10 @@ public class StatementPrinter {
     return "Rental Record for " + name + "\n";
   }
 
+  public String getRentalStatement(Rental rental, double thisAmount) {
+    return "\t" + rental.getMovie().getTitle() + "\t" + thisAmount + "\n";
+  }
+
   public String getFooter(double totalAmount, int frequentRenterPoints) {
     String result = "";
     result += "You owed " + totalAmount + "\n";
