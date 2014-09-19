@@ -20,7 +20,7 @@ public class Rental {
     double amount = 0;
     switch (getMovie().getPriceCode()) {
       case Movie.REGULAR:
-        amount = getRegularAmount(daysRented);
+        amount = movie.getAmount(daysRented);
         break;
       case Movie.NEW_RELEASE:
         amount += getDaysRented() * 3;
@@ -31,14 +31,6 @@ public class Rental {
           amount += (getDaysRented() - 3) * 1.5;
         }
         break;
-    }
-    return amount;
-  }
-
-  private double getRegularAmount(int daysRented) {
-    double amount = 2;
-    if (daysRented > 2) {
-      amount += (daysRented - 2) * 1.5;
     }
     return amount;
   }
