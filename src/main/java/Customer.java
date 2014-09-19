@@ -13,14 +13,10 @@ public class Customer {
     rentals.add(rental);
   }
 
-  public String getName() {
-    return name;
-  }
-
   public String statement() {
     double totalAmount = 0;
     int frequentRenterPoints = 0;
-    String result = "Rental Record for " + getName() + "\n";
+    String result = "Rental Record for " + name + "\n";
 
     for(Rental rental : rentals) {
       double thisAmount = rental.getAmount();
