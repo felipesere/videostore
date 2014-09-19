@@ -3,6 +3,7 @@ public class RegularMovie extends Movie {
     super(title);
   }
 
+  @Override
   double getAmount(int daysRented) {
     double amount = 2;
     if (daysRented > 2) {

@@ -3,7 +3,7 @@ public class ChildrensMovie extends Movie {
     super(title);
   }
 
-
+  @Override
   public double getAmount(int daysRented) {
     double amount = 1.5;
     if (daysRented > 3){
