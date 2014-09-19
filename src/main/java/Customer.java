@@ -1,16 +1,16 @@
-import java.util.Vector;
-import java.util.Enumeration;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Customer {
   private String name;
-  private Vector rentals = new Vector();
+  private List<Rental> rentals = new LinkedList<Rental>();
 
   public Customer(String name) {
     this.name = name;
   }
 
   public void addRental(Rental rental) {
-    rentals.addElement(rental);
+    rentals.add(rental);
   }
 
   public String getName() {
@@ -20,12 +20,10 @@ public class Customer {
   public String statement() {
     double totalAmount = 0;
     int frequentRenterPoints = 0;
-    Enumeration rentals = this.rentals.elements();
     String result = "Rental Record for " + getName() + "\n";
 
-    while (rentals.hasMoreElements()) {
+    for(Rental each : rentals) {
       double thisAmount = 0;
-      Rental each = (Rental) rentals.nextElement();
 
       // determines the amount for each line
       switch (each.getMovie().getPriceCode()) {
@@ -53,7 +51,6 @@ public class Customer {
 
     result += "You owed " + String.valueOf(totalAmount) + "\n";
     result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
-
 
     return result;
   }
