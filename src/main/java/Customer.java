@@ -16,7 +16,7 @@ public class Customer {
   public String statement() {
     double totalAmount = 0;
     int frequentRenterPoints = 0;
-    String result = getHeader();
+    String result = getHeader(name);
 
     for(Rental rental : rentals) {
       double thisAmount = rental.getAmount();
@@ -39,7 +39,7 @@ public class Customer {
     return result;
   }
 
-  private String getHeader() {
+  private String getHeader(String name) {
     return "Rental Record for " + name + "\n";
   }
 }
