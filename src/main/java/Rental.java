@@ -17,19 +17,7 @@ public class Rental {
 	private int daysRented;
 
   double getAmount() {
-    double amount = 0;
-    switch (getMovie().getPriceCode()) {
-      case Movie.REGULAR:
-        amount = movie.getAmount(daysRented);
-        break;
-      case Movie.NEW_RELEASE:
-        amount = movie.getAmount(daysRented);
-        break;
-      case Movie.CHILDRENS:
-        amount = movie.getAmount(daysRented);
-        break;
-    }
-    return amount;
+    return movie.getAmount(daysRented);
   }
 
   int getFrequentRenterPoints() {
